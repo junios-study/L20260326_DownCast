@@ -13,6 +13,8 @@ public:
 
 	virtual void Render();
 
+	void SetActorLocation(int NewX, int NewY);
+
 protected:
 	int X;
 	int Y;

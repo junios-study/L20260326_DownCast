@@ -4,13 +4,14 @@
 
 #include "Actor.h"
 #include "Player.h"
+
+#include <fstream>
+
 using namespace std;
+
 
 int main()
 {
-	//AActor* Actor = new APlayer();
-	//Actor->Render();
-
 	UEngine* MyEngine = new UEngine();
 
 	MyEngine->GetWorld()->Load("level01.umap");

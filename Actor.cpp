@@ -29,3 +29,9 @@ void AActor::Render()
 
     std::cout << Mesh;
 }
+
+void AActor::SetActorLocation(int NewX, int NewY)
+{
+    X = NewX;
+    Y = NewY;
+}
