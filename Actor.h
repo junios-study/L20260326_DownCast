@@ -3,7 +3,7 @@
 class AActor
 {
 public:
-	AActor();
+	AActor(int InX = 0, int InY = 0, char InMesh = ' ');
 	virtual ~AActor();
 
 	virtual void BeginPlay();
@@ -12,5 +12,10 @@ public:
 	virtual void Tick();
 
 	virtual void Render();
+
+protected:
+	int X;
+	int Y;
+	char Mesh;
 };
 

@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <string>
 
 class AActor;
 
@@ -18,11 +19,17 @@ public:
 		return NewActor;
 	}
 
+	void Load(std::string MapName);
+
 
 	inline std::vector<class AActor*>& GetActors()
 	{
 		return Actors;
 	}
+
+	void Tick();
+
+	void Render();
 
 protected:
 
