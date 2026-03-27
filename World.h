@@ -22,6 +22,8 @@ public:
 	void Load(std::string MapName);
 
 
+
+
 	inline std::vector<class AActor*>& GetActors()
 	{
 		return Actors;
@@ -34,6 +36,8 @@ public:
 protected:
 
 	std::vector<class AActor*> Actors;
+
+	void Sort();
 
 };
 
