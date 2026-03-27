@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Engine.h"
 #include "World.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -67,9 +68,20 @@ int Decending(int A, int B)
 	return 1;
 }
 
+void Test(int A, int B)
+{
+
+}
+
+void (*함수포인터이름)(int, int);
+
 //C++
 int main()
 {
+	함수포인터이름 = Test;
+
+	함수포인터이름(1, 2);
+
 	Connect(CompleteCallback);
 
 
@@ -96,14 +108,20 @@ int main()
 	//1 9 3 5 4 6 7 8 2 10
 	//1 2 9 5 4 6 7 8 3 10
 
-	int (*Compare)(int A, int B) = [](int A, int B) -> int {
+	int Number = 0;
+
+
+	//일급함수, 함수도 변수에 저장 가능함.
+	auto Compare = [Data,Number](int A, int B) -> int {
 		return 0;
-		};
+	};
 
 	Compare(1, 2);
 
-	//람다 함수, 익명 함수, C++ 14 이상
+
+	//람다 함수, 익명 함수, C++ 11 이상
 	Sort(Data, 8, [](int A, int B) -> int {
+
 		if (A > B)
 		{
 			return 1;
