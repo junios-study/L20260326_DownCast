@@ -90,7 +90,10 @@ void UEngine::TermBuffer()
 
 void UEngine::Input()
 {
-	KeyCode = _getch();
+	if (_kbhit())
+	{
+		KeyCode = _getch();
+	}
 }
 
 void UEngine::Tick()

@@ -41,6 +41,8 @@ void APlayer::Tick()
 	{
 		X++;
 	}
+
+	UEngine::KeyCode = 0;
 }
 
 void APlayer::Render()
