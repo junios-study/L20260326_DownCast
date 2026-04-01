@@ -38,7 +38,7 @@ int SDL_main(int argc, char* argv[])
 
 	SDL_Init(SDL_INIT_EVERYTHING);
 
-	SDL_Window* MyWindow = SDL_CreateWindow("Hello", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+	SDL_Window* MyWindow = SDL_CreateWindow("Hello", 100, 100, 1024, 768, SDL_WINDOW_SHOWN);
 
 
 	//GPU, 붓
@@ -61,14 +61,27 @@ int SDL_main(int argc, char* argv[])
 
 		//어떻게 그릴지 명령어 GPU
 		//빨간색 붓 고르고
-		for (int i = 0; i < 100; ++i)
-		{
-			SDL_SetRenderDrawColor(MyRender, DistR(RandomGenerator), DistG(RandomGenerator), DistB(RandomGenerator), DistA(RandomGenerator));
+		 
 
-			//사각형 그려
-			SDL_Rect MyRect = { DistX(RandomGenerator), DistY(RandomGenerator), DistX(RandomGenerator), DistY(RandomGenerator) };
-			SDL_RenderDrawRect(MyRender, &MyRect);
+		SDL_SetRenderDrawColor(MyRender, 255, 0, 0, 0);
+
+		int Radius = 200;
+		int CenterX = 500;
+		int CenterY = 500;
+		int Size = 15;
+
+		for (int Theta = 0; Theta <= 360; Theta += Size)
+		{
+			float Radian1 = (float)Theta * 3.141592f / 180.0f;
+			float Radian2 = (float)(Theta + Size) * 3.141592f / 180.0f;
+			int X1 = Radius * SDL_cos(Radian1) + CenterX;
+			int Y1 = Radius * SDL_sin(Radian1) + CenterY;
+			int X2 = Radius * SDL_cos(Radian2) + CenterX;
+			int Y2 = Radius * SDL_sin(Radian2) + CenterY;
+			//SDL_RenderDrawPoint(MyRender, X, Y);
+			SDL_RenderDrawLine(MyRender, X1, Y1, X2, Y2);
 		}
+
 
 
 		//그려CPU -> GPU
