@@ -41,8 +41,6 @@ public:
 		return World;
 	}
 
-	static int KeyCode;
-	
 	//Renderer
 	HANDLE ScreenBufferHandle[2];
 	int ActiveScreenBufferIndex = 0;
@@ -53,6 +51,11 @@ public:
 	void Render(int InX, int InY, int R, int G, int B);
 	void Flip();
 	void TermBuffer();
+
+	inline const SDL_Event& GetEvent()
+	{
+		return MyEvent;
+	}
 
 protected:
 	void Input();

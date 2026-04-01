@@ -1,13 +1,9 @@
 #include "Engine.h"
-#include <conio.h>
 #include "Actor.h"
 #include "World.h"
 #include "SDL.h"
 
 UEngine* UEngine::Instance = nullptr;
-
-int UEngine::KeyCode = 0;
-
 
 
 UEngine::UEngine()
@@ -113,10 +109,10 @@ void UEngine::TermBuffer()
 
 void UEngine::Input()
 {
-	if (_kbhit())
-	{
-		KeyCode = _getch();
-	}
+	//if (_kbhit())
+	//{
+	//	KeyCode = _getch();
+	//}
 }
 
 void UEngine::Tick()
