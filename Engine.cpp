@@ -21,7 +21,7 @@ void UEngine::Init()
 	SDL_Init(SDL_INIT_EVERYTHING);
 
 	MyWindow = SDL_CreateWindow("Hello", 100, 100, 1024, 768, SDL_WINDOW_SHOWN);
-	MyRender = SDL_CreateRenderer(MyWindow, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
+	MyRenderer = SDL_CreateRenderer(MyWindow, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
 	//MyRender = SDL_CreateRenderer(MyWindow, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_SOFTWARE);
 
 	bIsRunning = true;
@@ -33,7 +33,7 @@ void UEngine::Init()
 
 void UEngine::Term()
 {
-	SDL_DestroyRenderer(MyRender);
+	SDL_DestroyRenderer(MyRenderer);
 	SDL_DestroyWindow(MyWindow);
 	SDL_Quit();
 
@@ -83,8 +83,8 @@ void UEngine::Clear()
 {
 	//CPU하는건 GPU가 할일을 적는거야. 많이 많이 많이
 	//GPU 한테 보낼 명령어 모음
-	SDL_SetRenderDrawColor(MyRender, 255, 255, 255, 255);
-	SDL_RenderClear(MyRender);
+	SDL_SetRenderDrawColor(MyRenderer, 255, 255, 255, 255);
+	SDL_RenderClear(MyRenderer);
 
 	//Console Clear
 	//DWORD DW;
@@ -103,10 +103,18 @@ void UEngine::Render(int InX, int InY, char InMesh)
 void UEngine::Render(int InX, int InY, int R, int G, int B)
 {
 	int TileSize = 30;
-	SDL_SetRenderDrawColor(MyRender, R, G, B, 255);
+	SDL_SetRenderDrawColor(MyRenderer, R, G, B, 255);
 	//SDL_RenderDrawPoint(MyRender, InX, InY);
 	SDL_Rect MyRect = { InX * TileSize, InY * TileSize, TileSize, TileSize };
-	SDL_RenderFillRect(MyRender, &MyRect);
+	SDL_RenderFillRect(MyRenderer, &MyRect);
+}
+
+void UEngine::Render(int InX, int InY, SDL_Texture* InTexture)
+{
+	int TileSize = 30;
+
+	SDL_Rect MyRect = { InX * TileSize, InY * TileSize, TileSize, TileSize };
+	SDL_RenderCopy(MyRenderer, InTexture, nullptr, &MyRect);
 }
 
 
@@ -146,5 +154,5 @@ void UEngine::Render()
 	World->Render();
 
 	//그려CPU -> GPU
-	SDL_RenderPresent(MyRender);
+	SDL_RenderPresent(MyRenderer);
 }
