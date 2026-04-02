@@ -8,6 +8,8 @@ AActor::AActor(int InX, int InY, char InMesh) : X(InX), Y(InY), Mesh(InMesh)
 	R = 0;
 	G = 0;
 	B = 0;
+
+
 }
 
 AActor::~AActor()
@@ -43,6 +45,8 @@ void AActor::SetActorLocation(int NewX, int NewY)
 void AActor::Load(std::string Filename)
 {
 	Image = SDL_LoadBMP(Filename.c_str());
+
+	SDL_SetColorKey(Image, SDL_TRUE, SDL_MapRGB(Image->format, 255, 255, 255));
 
 	Texture = SDL_CreateTextureFromSurface(GEngine->GetRenderer(), Image);
 }

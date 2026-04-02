@@ -30,6 +30,8 @@ void UWorld::Load(std::string MapName)
 	std::ifstream MapStream(MapName);
 
 	int Y = 0;
+	int MaxX = -1;
+	int MaxY = -1;
 	while (!MapStream.eof())
 	{
 		std::string Line;
@@ -60,9 +62,19 @@ void UWorld::Load(std::string MapName)
 				SpawnActor<AGoal>()->SetActorLocation(X, Y);
 				SpawnActor<AFloor>()->SetActorLocation(X, Y);
 			}
+
+			if (MaxX < X + 1)
+			{
+				MaxX = X + 1;
+			}
+
 		}
 		Y++;
 	}
+
+	MaxY = Y;
+
+	SDL_SetWindowSize(GEngine->GetWindow(), (MaxX) * 30, MaxY * 30);
 
 	//Sort();
 	std::sort(Actors.begin(), Actors.end(), 

@@ -10,6 +10,8 @@ AFloor::AFloor(int InX, int InY, char InMesh)
 	R = 0;
 	G = 0;
 	B = 0;
+
+	Load("Data/floor.bmp");
 }
 
 AFloor::~AFloor()

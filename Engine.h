@@ -72,6 +72,11 @@ public:
 		return MyRenderer;
 	}
 
+	inline SDL_Window* GetWindow() const
+	{
+		return MyWindow;
+	}
+
 protected:
 	void Input();
 	void Tick();

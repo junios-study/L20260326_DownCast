@@ -13,6 +13,8 @@ APlayer::APlayer(int InX, int InY, char InMesh)
 	R = 255;
 	G = 0;
 	B = 0;
+
+	Load("Data/player.bmp");
 }
 
 APlayer::~APlayer()
@@ -59,7 +61,15 @@ void APlayer::Tick()
 			GEngine->Stop();
 		}
 	}
-	 
+}
+
+void APlayer::Load(std::string Filename)
+{
+	Image = SDL_LoadBMP(Filename.c_str());
+
+	SDL_SetColorKey(Image, SDL_TRUE, SDL_MapRGB(Image->format, 255, 0, 255));
+
+	Texture = SDL_CreateTextureFromSurface(GEngine->GetRenderer(), Image);
 }
 
 void APlayer::Render()
