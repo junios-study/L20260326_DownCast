@@ -78,9 +78,9 @@ void UWorld::Load(std::string MapName)
 
 	SDL_SetWindowSize(GEngine->GetWindow(), (MaxX) * 30, MaxY * 30);
 
-	Sort();
+	//Sort();
 	std::sort(Actors.begin(), Actors.end(), 
-		[](AActor* First, AActor* Second) -> int {
+		[&](AActor* First, AActor* Second) -> int {
 
 			USpriteComponent* FirstRenderComponent = nullptr;
 			for (auto Component : First->Components)
@@ -113,6 +113,7 @@ void UWorld::Load(std::string MapName)
 			}
 
 			return (FirstRenderComponent->ZOrder < SecondRenderComponent->ZOrder ? 1 : 0);
+
 		}
 	);
 }

@@ -11,5 +11,8 @@ public:
 protected:
 	float ElapsedTime = 0;
 	float ExecutionTime = 0.1f;
+
+	class USpriteComponent* SpriteComponent;
+
 };
 

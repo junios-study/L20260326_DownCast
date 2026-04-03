@@ -14,6 +14,7 @@ AFloor::AFloor(int InX, int InY, char InMesh)
 	Resource TempResource = GEngine->GetResourceManager()->LoadTexture("Data/floor.bmp");
 	SpriteComponent->Image = TempResource.Image;
 	SpriteComponent->Texture = TempResource.Texture;
+	SpriteComponent->ZOrder = 1;
 }
 
 AFloor::~AFloor()

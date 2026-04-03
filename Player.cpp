@@ -2,6 +2,7 @@
 #include "Engine.h"
 #include "GameplayStatics.h"
 #include "ResourceManager.h"
+#include "SpriteComponent.h"
 
 APlayer::APlayer(int InX, int InY, char InMesh)  
 {
@@ -11,6 +12,13 @@ APlayer::APlayer(int InX, int InY, char InMesh)
 	//Resource TempResource = GEngine->GetResourceManager()->LoadTexture("Data/player.bmp", true, 255, 0, 255);
 	//Image = TempResource.Image;
 	//Texture = TempResource.Texture;
+
+	SpriteComponent = CreateDefaultSubobject<USpriteComponent>("Sprite");
+
+	Resource TempResource = GEngine->GetResourceManager()->LoadTexture("Data/player.bmp", true, 255, 0, 255);
+	SpriteComponent->Image = TempResource.Image;
+	SpriteComponent->Texture = TempResource.Texture;
+	SpriteComponent->ZOrder = 100;
 }
 
 APlayer::~APlayer()
