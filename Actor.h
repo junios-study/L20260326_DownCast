@@ -37,6 +37,8 @@ public:
 
 	FActorBeginOverlapSignature OnActorBeginOverlap;
 
+	virtual void ReceiveHit(class AActor* Other);
+
 protected:
 	int X;
 	int Y;

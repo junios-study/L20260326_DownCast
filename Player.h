@@ -3,6 +3,8 @@
 #include <xkeycheck.h>
 
 class USpriteAnimationComponent;
+class UCollisionComponent;
+class AActor;
 
 class APlayer : public AActor
 {
@@ -14,14 +16,16 @@ public:
 
 	virtual void Tick() override;
 
-	void ProcessBeginOverlap(class AActor* OtherActor);
+	virtual void ReceiveHit(AActor* Other) override;
 
+	void ProcessBeginOverlap(AActor* OtherActor);
 
 	USpriteAnimationComponent* SpriteAnimationComponent;
 
+	UCollisionComponent* CollisionComponent;
 
 protected:
-
+	bool PredictMove(int InX, int InY); //Movement Component 만드셈 //난 안한다.
 
 
 };

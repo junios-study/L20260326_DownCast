@@ -35,3 +35,7 @@ void AActor::SetActorLocation(int NewX, int NewY)
 	X = NewX;
 	Y = NewY;
 }
+
+void AActor::ReceiveHit(AActor* Other)
+{
+}
