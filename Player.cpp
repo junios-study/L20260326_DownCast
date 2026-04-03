@@ -7,26 +7,14 @@ APlayer::APlayer(int InX, int InY, char InMesh)
 {
 	X = InX;
 	Y = InY;
-	Mesh = InMesh;
-	ZOrder = 100;
 
-	R = 255;
-	G = 0;
-	B = 0;
-
-	Resource TempResource = GEngine->GetResourceManager()->LoadTexture("Data/player.bmp", true, 255, 0, 255);
-	Image = TempResource.Image;
-	Texture = TempResource.Texture;
+	//Resource TempResource = GEngine->GetResourceManager()->LoadTexture("Data/player.bmp", true, 255, 0, 255);
+	//Image = TempResource.Image;
+	//Texture = TempResource.Texture;
 }
 
 APlayer::~APlayer()
 {
-}
-
-void APlayer::BeginPlay()
-{
-	__super::BeginPlay();
-
 }
 
 void APlayer::Tick()
@@ -78,14 +66,14 @@ void APlayer::Tick()
 	}
 }
 
-void APlayer::Render()
-{
-	int TileSize = 30;
-	int SpriteSizeX = Image->w / 5;
-	int SpriteSizeY = Image->h / 5;
-
-	//애니메이션 되게 해줘.
-	SDL_Rect SourceRect = { SpriteIndexX * SpriteSizeX, SpriteIndexY * SpriteSizeY, SpriteSizeX, SpriteSizeY };
-	SDL_Rect DestinationRect = { X * TileSize, Y * TileSize, TileSize, TileSize };
-	SDL_RenderCopy(GEngine->GetRenderer(), Texture, &SourceRect, &DestinationRect);
-}
+//void APlayer::Render()
+//{
+//	int TileSize = 30;
+//	int SpriteSizeX = Image->w / 5;
+//	int SpriteSizeY = Image->h / 5;
+//
+//	//애니메이션 되게 해줘.
+//	SDL_Rect SourceRect = { SpriteIndexX * SpriteSizeX, SpriteIndexY * SpriteSizeY, SpriteSizeX, SpriteSizeY };
+//	SDL_Rect DestinationRect = { X * TileSize, Y * TileSize, TileSize, TileSize };
+//	SDL_RenderCopy(GEngine->GetRenderer(), Texture, &SourceRect, &DestinationRect);
+//}

@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "RenderableComponent.h"
+#include "SDL.h"
 
 class USpriteComponent : public UComponent, IRenderableComponent
 {
@@ -17,6 +18,12 @@ public:
 	//UE에는 있음
 	virtual void Render() override;
 
+	int ZOrder = 0;
 
+	int X = 0;
+	int Y = 0;
+
+	SDL_Surface* Image;
+	SDL_Texture* Texture;
 };
 

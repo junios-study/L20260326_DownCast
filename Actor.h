@@ -1,9 +1,12 @@
 #pragma once
 #include <string>
-//#include "SDL.h"
+#include <vector>	
+
 
 struct SDL_Surface;
 struct SDL_Texture;
+
+class UComponent;
 
 class AActor
 {
@@ -16,30 +19,38 @@ public:
 	//override
 	virtual void Tick();
 
-	virtual void Render();
+	//virtual void Render();
 
 	void SetActorLocation(int NewX, int NewY);
 	
-	inline const int GetZOrder() 
-	{
-		return ZOrder;
-	}
+	//inline const int GetZOrder() 
+	//{
+	//	return ZOrder;
+	//}
 
-	bool isCollision;
-	bool isGenrateOverlap;
+
+	
 
 protected:
 	int X;
 	int Y;
 
-	int R;
-	int G;
-	int B;
+	std::vector<UComponent*> Components;
 
-	int ZOrder = 0;
-	char Mesh;
+	template<typename T>
+	T* CreateDefaultSubobject(std::string ComponentName)
+	{
+		return new T;
+	}
 
-	SDL_Surface* Image;
-	SDL_Texture* Texture;
+	//int R;
+	//int G;
+	//int B;
+
+	//int ZOrder = 0;
+	//char Mesh;
+
+	//SDL_Surface* Image;
+	//SDL_Texture* Texture;
 };
 
