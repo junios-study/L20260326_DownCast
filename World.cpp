@@ -12,6 +12,7 @@
 #include "Floor.h"
 #include "RenderableComponent.h"
 #include "SpriteComponent.h"
+#include "GameMode.h"
 
 UWorld::UWorld()
 {
@@ -29,6 +30,9 @@ UWorld::~UWorld()
 
 void UWorld::Load(std::string MapName)
 {
+	Actors.push_back(new AGameMode());
+
+
 	std::ifstream MapStream(MapName);
 
 	int Y = 0;

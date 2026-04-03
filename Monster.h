@@ -1,6 +1,7 @@
 #pragma once
-#include "Actor.h"
-class AMonster : public AActor
+#include "Character.h"
+
+class AMonster : public ACharacter
 {
 public:
 	AMonster(int InX = 0, int InY = 0, char InMesh = 'M');

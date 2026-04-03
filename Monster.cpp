@@ -17,6 +17,7 @@ AMonster::AMonster(int InX, int InY, char InMesh)
 	SpriteComponent->Image = TempResource.Image;
 	SpriteComponent->Texture = TempResource.Texture;
 	SpriteComponent->ZOrder = 30;
+	ExecutionTime = 0.5f;
 }
 
 AMonster::~AMonster()
@@ -34,19 +35,19 @@ void AMonster::Tick()
 
 		int Direction = rand() % 5;
 
-		if (Direction == 0)
+		if (Direction == 0 && PredictMove(X, Y - 1))
 		{
 			Y--;
 		}
-		if (Direction == 1)
+		if (Direction == 1 && PredictMove(X, Y + 1))
 		{
 			Y++;
 		}
-		if (Direction == 2)
+		if (Direction == 2 && PredictMove(X - 1, Y))
 		{
 			X--;
 		}
-		if (Direction == 3)
+		if (Direction == 3 && PredictMove(X + 1, Y))
 		{
 			X++;
 		}

@@ -19,6 +19,22 @@ public:
 		return NewActor;
 	}
 
+	template<typename T>
+	AActor* GetActorOfClass()
+	{
+		for (auto Actor : Actors)
+		{
+			T* Target = dynamic_cast<T*>(Actor);
+			if (Target)
+			{
+				return Target;
+			}
+		}
+
+		return nullptr;
+	}
+
+
 	void Load(std::string MapName);
 
 
