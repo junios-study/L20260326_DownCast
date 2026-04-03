@@ -28,11 +28,13 @@ UWorld::~UWorld()
 	Actors.clear();
 }
 
+void UWorld::SetGameMode(AGameMode* NewGameMode)
+{
+	Actors.push_back(NewGameMode);
+}
+
 void UWorld::Load(std::string MapName)
 {
-	Actors.push_back(new AGameMode());
-
-
 	std::ifstream MapStream(MapName);
 
 	int Y = 0;

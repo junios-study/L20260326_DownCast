@@ -141,6 +141,7 @@
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MyGM.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="SpriteAnimationComponent.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="GameplayStatics.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="MyGM.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RenderableComponent.h" />
     <ClInclude Include="ResourceManager.h" />

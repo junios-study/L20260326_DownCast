@@ -3,12 +3,16 @@
 #include <string>
 
 class AActor;
+class AGameMode;
+
 
 class UWorld
 {
 public:
 	UWorld();
 	virtual ~UWorld();
+
+	void SetGameMode(AGameMode* NewGameMode);
 
 	template<typename T>
 	AActor* SpawnActor()
