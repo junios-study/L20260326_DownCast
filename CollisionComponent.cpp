@@ -17,7 +17,7 @@ void UCollisionComponent::BeginPlay()
 
 void UCollisionComponent::Tick()
 {
-	for (auto Other : GEngine->GetWorld()->GetActors())
+	for (auto Other : Owner->GetWorld()->GetActors())
 	{
 		if (Other == this->Owner) //자기 비교 할필요가 없음
 		{

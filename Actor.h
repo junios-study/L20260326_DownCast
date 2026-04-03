@@ -39,6 +39,19 @@ public:
 
 	virtual void ReceiveHit(class AActor* Other);
 
+	class UWorld* GetWorld();
+
+	void SetWorld(class UWorld* InWorld)
+	{
+		World = InWorld;
+	}
+
+	inline const std::string& GetName() const
+	{
+		return Name;
+	}
+
+
 protected:
 	int X;
 	int Y;
@@ -53,14 +66,9 @@ protected:
 		return Temp; 
 	}
 
-	//int R;
-	//int G;
-	//int B;
+	class UWorld* World;
 
-	//int ZOrder = 0;
-	//char Mesh;
 
-	//SDL_Surface* Image;
-	//SDL_Texture* Texture;
+	std::string Name;
 };
 

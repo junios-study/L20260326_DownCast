@@ -3,6 +3,7 @@
 
 AMyGM::AMyGM()
 {
+	Name = "MyGM";
 }
 
 AMyGM::~AMyGM()

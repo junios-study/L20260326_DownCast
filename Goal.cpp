@@ -21,6 +21,7 @@ AGoal::AGoal(int InX, int InY, char InMesh)
 	CollisionComponent->bIsGenerateHit = false;
 	CollisionComponent->bIsGenerateOverlap = true;
 
+	Name = "Goal";
 
 }
 

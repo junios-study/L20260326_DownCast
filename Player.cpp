@@ -30,6 +30,8 @@ APlayer::APlayer(int InX, int InY, char InMesh)
 	CollisionComponent->bIsGenerateHit = true;
 	CollisionComponent->bIsGenerateOverlap = true;
 
+	Name = "Player";
+
 }
 
 APlayer::~APlayer()

@@ -22,6 +22,8 @@ AMonster::AMonster(int InX, int InY, char InMesh)
 	CollisionComponent = CreateDefaultSubobject<UCollisionComponent>("Collision");
 	CollisionComponent->bIsGenerateHit = false;
 	CollisionComponent->bIsGenerateOverlap = true;
+
+	Name = "Monster";
 }
 
 AMonster::~AMonster()

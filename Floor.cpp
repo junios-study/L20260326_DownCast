@@ -15,6 +15,8 @@ AFloor::AFloor(int InX, int InY, char InMesh)
 	SpriteComponent->Image = TempResource.Image;
 	SpriteComponent->Texture = TempResource.Texture;
 	SpriteComponent->ZOrder = 1;
+
+	Name = "Floor";
 }
 
 AFloor::~AFloor()
