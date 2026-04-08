@@ -30,7 +30,7 @@ void UEngine::Init()
 	int Frequency = 0;
 	Uint16 Format = 0;
 	int Channels = 0;
-	int Result = Mix_OpenAudioDevice(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 4096, Device, SDL_AUDIO_ALLOW_ANY_CHANGE);
+	int Result = Mix_OpenAudioDevice(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 4096, Device, SDL_AUDIO_ALLOW_ANY_CHANGE); 
 
 
 	Result = Mix_QuerySpec(&Frequency, &Format, &Channels);
