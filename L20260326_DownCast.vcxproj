@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDIr)SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)SDL2\include;$(SolutionDir)SDL2_ttf\include;$(SolutionDir)SDL2_mixer\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDIr)SDL2\lib\x64;$(SolutionDir)SDL2_mixer\lib\x64;$(SolutionDir)SDL2_ttf\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,7 +112,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)SDL2\lib\x64\SDL2.dll $(OutputPath)SDL2.dll</Command>
+      <Command>copy $(SolutionDir)SDL2\lib\x64\SDL2.dll $(OutputPath)SDL2.dll
+copy $(SolutionDir)SDL2_ttf\lib\x64\*.dll $(OutputPath)\.
+copy $(SolutionDir)SDL2_mixer\lib\x64\*.dll $(OutputPath)\.</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -146,6 +148,7 @@
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="SpriteAnimationComponent.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="TextRenderComponent.cpp" />
     <ClCompile Include="Wall.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
@@ -166,6 +169,7 @@
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SpriteAnimationComponent.h" />
     <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="TextRenderComponent.h" />
     <ClInclude Include="Wall.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>

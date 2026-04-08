@@ -3,9 +3,13 @@
 #include <vector>
 #include <Windows.h>
 #include "SDL.h"
+#include "SDL_mixer.h"
+#include "SDL_ttf.h"
 
 #pragma comment(lib, "SDL2")
 #pragma comment(lib, "SDL2main")
+#pragma comment(lib, "SDL2_ttf")
+#pragma comment(lib, "SDL2_mixer")
 
 class AActor;
 class UWorld;
