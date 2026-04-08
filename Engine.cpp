@@ -27,6 +27,9 @@ void UEngine::Init()
 
 	TTF_Init();
 
+	TTF_Font* Font = TTF_OpenFont("./Data/font.ttf", 32);
+
+
 	ResourceManager = new UResourceManager();
 
 	bIsRunning = true;
@@ -38,6 +41,12 @@ void UEngine::Init()
 
 void UEngine::Term()
 {
+	//리로스 매니저 바꾸면 된다.
+	if (Font)
+	{
+		TTF_CloseFont(Font);
+	}
+
 	TTF_Quit();
 	SDL_DestroyRenderer(MyRenderer);
 	SDL_DestroyWindow(MyWindow);

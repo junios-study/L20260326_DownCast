@@ -2,6 +2,10 @@
 
 #include "Component.h"
 #include "RenderableComponent.h"
+#include <string>
+
+struct SDL_Surface;
+struct SDL_Texture;
 
 
 class UTextRenderComponent : public UComponent, public IRenderableComponent
@@ -16,7 +20,13 @@ public:
 
 	virtual void Render() override;
 
+	void SetText(std::string InText);
 
+protected:
+	std::string Text;
+
+	SDL_Surface* Surface;
+	SDL_Texture* Texture;
 
 };
 

@@ -58,7 +58,7 @@ public:
 	void Render(int InX, int InY, char InMesh);
 	void Render(int InX, int InY, int R, int G, int B);
 	void Render(int InX, int InY, SDL_Texture* InTexture);
-	
+
 	void Flip();
 	void TermBuffer();
 
@@ -86,6 +86,8 @@ public:
 	{
 		return ResourceManager;
 	}
+
+	TTF_Font* Font;
 
 protected:
 	void Input();

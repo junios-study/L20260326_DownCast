@@ -72,6 +72,12 @@
     <ClCompile Include="TextRenderComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TextRenderActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="YoudieActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -129,6 +135,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TextRenderComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderActor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="YoudieActor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
