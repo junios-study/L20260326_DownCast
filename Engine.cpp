@@ -27,7 +27,7 @@ void UEngine::Init()
 
 	TTF_Init();
 
-	TTF_Font* Font = TTF_OpenFont("./Data/font.ttf", 32);
+	Font = TTF_OpenFont("./Data/font.ttf", 32);
 
 
 	ResourceManager = new UResourceManager();
