@@ -25,7 +25,23 @@ void UEngine::Init()
 	MyRenderer = SDL_CreateRenderer(MyWindow, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
 	//MyRender = SDL_CreateRenderer(MyWindow, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_SOFTWARE);
 	Mix_Init(MIX_INIT_MP3);
-	int Success = Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 4096);
+
+	char* Device = nullptr;
+	int Frequency = 0;
+	Uint16 Format = 0;
+	int Channels = 0;
+	int Result = Mix_OpenAudioDevice(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 4096, Device, SDL_AUDIO_ALLOW_ANY_CHANGE);
+
+
+	Result = Mix_QuerySpec(&Frequency, &Format, &Channels);
+	if (Result == 1)
+	{
+		int Success = Mix_OpenAudio(Frequency, Format, Channels, 4096);
+		if (Success == -1)
+		{
+			SDL_Log("Sound Card Error");
+		}
+	}
 
 	TTF_Init();
 
